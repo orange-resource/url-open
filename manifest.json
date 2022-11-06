@@ -1,0 +1,37 @@
+{
+	"manifest_version": 2,
+	"name": "外部网址跳转直接打开",
+	"version": "1.0.0",
+	"description": "支持简书，知乎网页直接打开外部网址  https://github.com/kylelin1998",
+	"icons":
+	{
+		"16": "img/icon.png",
+		"48": "img/icon.png",
+		"128": "img/icon.png"
+	},
+	"browser_action": 
+	{
+		"default_icon": "img/icon.png",
+		"default_popup": "popup.html"
+	},
+	"content_scripts": 
+	[
+		{
+			"matches": ["https://www.jianshu.com/*", "https://link.zhihu.com/*"],
+			"js": ["js/jquery.min.js", "js/content-script.js"],
+			"css": ["css/custom.css"],
+			"run_at": "document_end"
+		}
+	],
+	"permissions":
+	[
+		"storage"
+	],
+	"homepage_url": "https://gitee.com/orange-resource/url-open-crx",
+	"options_page": "options.html",
+	"options_ui":
+	{
+		"page": "options.html",
+		"chrome_style": true
+	}
+}
